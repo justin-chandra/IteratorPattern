@@ -124,12 +124,17 @@ void PreOrderIterator::first()
 
 void PreOrderIterator::next()
 {
-	Iterator * temp = iterators.top();
+	Iterator * temp = iterators.top()->current()->create_iterator();
+	temp->first();
 	iterators.push(temp);
-	if (temp->is_done())
+	while (iterators.top()->is_done())
 	{
 		iterators.pop();
-		current_ptr = iterators.top()->current();
+		if (iterators.empty())
+		{
+			return;
+		}
+		iterators.top()->next();
 	}
 }
 
