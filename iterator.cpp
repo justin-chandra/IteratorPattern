@@ -62,7 +62,7 @@ Base * UnaryIterator::current()
 
 NullIterator::NullIterator(Base * ptr) : Iterator(ptr)
 {
-
+	this->self_ptr = ptr;
 }
 
 void NullIterator::first()
@@ -77,7 +77,7 @@ void NullIterator::next()
 
 bool NullIterator::is_done()
 {
-	return false;
+	return true;
 }
 
 Base * NullIterator::current()
@@ -91,25 +91,37 @@ Base * NullIterator::current()
 
 PreOrderIterator::PreOrderIterator(Base * ptr) : Iterator(ptr)
 {
-
+	this->self_ptr = ptr;
 }
 
 void PreOrderIterator::first()
 {
-
+	while (!iterators.empty())
+	{
+		iterators.pop();
+	}
+	Iterator * it = self_ptr->create_iterator();
+	it->first();
+	iterators.push(it);
 }
 
 void PreOrderIterator::next()
 {
-
+	Iterator * temp = iterators.top();
+	iterators.push(temp);
+	if (temp->is_done())
+	{
+		iterators.pop();
+		current_ptr = iterators.top()->current();
+	}
 }
 
 bool PreOrderIterator::is_done()
 {
-	return false;
+	return iterators.empty();
 }
 
 Base * PreOrderIterator::current()
 {
-	return NULL;
+	return iterators.top()->current();
 }
