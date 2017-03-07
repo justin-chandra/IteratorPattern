@@ -2,7 +2,7 @@
 
 //OPERATOR ITERATOR
 
-OperatorIterator::OperatorIterator(Base * ptr)
+OperatorIterator::OperatorIterator(Base * ptr) : Iterator(ptr)
 {
 
 }
@@ -30,7 +30,7 @@ Base * OperatorIterator::current()
 //END OPERATOR ITERATOR
 
 //UNARY ITERATOR
-UnaryIterator::UnaryIterator(Base * ptr)
+UnaryIterator::UnaryIterator(Base * ptr) : Iterator(ptr)
 {
 
 }
@@ -60,7 +60,7 @@ Base * UnaryIterator::current()
 
 //NULL ITERATOR
 
-NullIterator::NullIterator(Base * ptr)
+NullIterator::NullIterator(Base * ptr) : Iterator(ptr)
 {
 
 }
@@ -89,7 +89,7 @@ Base * NullIterator::current()
 
 //PREORDER ITERATOR
 
-PreOrderIterator::PreOrderIterator(Base * ptr)
+PreOrderIterator::PreOrderIterator(Base * ptr) : Iterator(ptr)
 {
 
 }

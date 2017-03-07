@@ -1,7 +1,15 @@
 #ifndef IT_H
 #define IT_H
 
-//also includes
+
+#include <iostream>
+#include <stack>
+
+#include "composite.h"
+
+using namespace std;
+
+class Base;
 
 class Iterator
 {
@@ -10,7 +18,7 @@ class Iterator
 		Base * current_ptr;
 
 	public:
-		Iterator (Base *ptr)
+		Iterator(Base *ptr)
 		{
 			this->self_ptr = ptr;
 		}
@@ -43,7 +51,6 @@ class UnaryIterator: public Iterator
 
 class OperatorIterator: public Iterator
 {
-	
 	public:
 		OperatorIterator(Base* ptr);
 		void first();
@@ -63,6 +70,6 @@ class PreOrderIterator: public Iterator
 		void next();
 		bool is_done();
 		Base* current();	
-}
+};
 
 #endif
