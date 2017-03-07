@@ -4,27 +4,38 @@
 
 OperatorIterator::OperatorIterator(Base * ptr) : Iterator(ptr)
 {
-
+	this->self_ptr = ptr;
 }
 
 void OperatorIterator::first()
 {
-	left->current() = ptr; 	
+	current_ptr = self_ptr->get_left(); 		
+	return;
 }
 
 void OperatorIterator::next()
 {
-	right->current() = ptr;	
+	if (current_ptr == self_ptr->get_left())
+	{
+		current_ptr = self_ptr->get_right();
+	}	
+
+	else if (current_ptr == self_ptr->get_right())
+	{
+		current_ptr = NULL;
+	}
+
+	return;
 }
 
 bool OperatorIterator::is_done()
 {
-	return false;
+	return !current_ptr;
 }
 
 Base * OperatorIterator::current()
 {
-	return NULL;
+	return current_ptr;
 }
 
 //END OPERATOR ITERATOR
@@ -32,27 +43,33 @@ Base * OperatorIterator::current()
 //UNARY ITERATOR
 UnaryIterator::UnaryIterator(Base * ptr) : Iterator(ptr)
 {
-
+	this->self_ptr = ptr;
 }
 
 void UnaryIterator::first()
 {
-	left->current() = ptr;
+	current_ptr = self_ptr->get_left();
+	return;
 }
 
 void UnaryIterator::next()
 {
+	if(current_ptr == self_ptr->get_left())
+	{
+		current_ptr = NULL;
+	}
+
 	return;
 }
 
 bool UnaryIterator::is_done()
 {
-	return false;
+	return !current_ptr;
 }
 
 Base * UnaryIterator::current()
 {
-	return NULL;
+	return current_ptr;
 }
 
 
