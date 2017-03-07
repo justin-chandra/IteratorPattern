@@ -9,12 +9,12 @@ OperatorIterator::OperatorIterator(Base * ptr) : Iterator(ptr)
 
 void OperatorIterator::first()
 {
-
+	left->current() = ptr; 	
 }
 
 void OperatorIterator::next()
 {
-
+	right->current() = ptr;	
 }
 
 bool OperatorIterator::is_done()
@@ -37,12 +37,12 @@ UnaryIterator::UnaryIterator(Base * ptr) : Iterator(ptr)
 
 void UnaryIterator::first()
 {
-
+	left->current() = ptr;
 }
 
 void UnaryIterator::next()
 {
-
+	return;
 }
 
 bool UnaryIterator::is_done()
