@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "composite.h"
+#include "Visitor.h"
 
 using namespace std;
 
@@ -16,8 +17,11 @@ int main() {
 
 	cout << "--- PreOrder Iteration ---" << endl;
 	PreOrderIterator* pre_itr = new PreOrderIterator(root);
+	Visitor * p = new PrintVisitor();
 	for(pre_itr->first(); !pre_itr->is_done(); pre_itr->next()) {
 		pre_itr->current()->print();
+		pre_itr->current()->accept(p);
 		cout << endl;
 	}
+	p->execute();	
 };

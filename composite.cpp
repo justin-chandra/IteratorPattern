@@ -45,7 +45,7 @@ Add::Add(Base* left, Base* right) : Operator(left,right) { };
 void Add::print() { cout << "+"; }
 double Add::evaluate() { return this->left->evaluate() + this->right->evaluate(); };
 
-void Add::accept(Visitor * v)
+void Add::accept(Visitor *v)
 {
 	v->addNode();
 }
@@ -59,7 +59,7 @@ Sub::Sub(Base* left, Base* right) : Operator(left,right) { };
 void Sub::print() { cout << "-"; }
 double Sub::evaluate() { return this->left->evaluate() - this->right->evaluate(); };
 
-void Sub::accept(Visitor * v)
+void Sub::accept(Visitor *v)
 {
 	v->subNode();
 }
@@ -73,7 +73,7 @@ Mult::Mult(Base* left, Base* right) : Operator(left,right) { };
 void Mult::print() { cout << "*"; }
 double Mult::evaluate() { return this->left->evaluate() * this->right->evaluate(); };
 
-void Mult::accept(Visitor * v)
+void Mult::accept(Visitor *v)
 {
 	v->multNode();
 }
@@ -86,7 +86,7 @@ Sqr::Sqr(Base* child) : UnaryOperator(child) { };
 
 void Sqr::print() { cout << "^2"; }
 double Sqr::evaluate() { return pow(this->child->evaluate(),2); };
-void Sqr::accept(Visitor * v)
+void Sqr::accept(Visitor *v)
 {
 	v->sqrNode();
 }
@@ -99,7 +99,7 @@ Root::Root(Base* child) : UnaryOperator(child) { };
 
 void Root::print() { cout << "ROOT"; }
 double Root::evaluate() { return this->child->evaluate(); };
-void Root::accept(Visitor * v)
+void Root::accept(Visitor *v)
 {
 
 }
