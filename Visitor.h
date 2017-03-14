@@ -8,13 +8,14 @@ using namespace std;
 #include "composite.h"
 
 class Base;
+class Op;
 
 class Visitor
 {
 	public:
-		string output;
+		//string output;
 
-		Visitor();
+		//Visitor();
 		virtual void rootNode() = 0;
 		virtual void sqrNode() = 0;
 		virtual void multNode() = 0;
@@ -23,7 +24,7 @@ class Visitor
 		virtual void opNode(Op * op) = 0;
 
 		virtual void execute() = 0;
-		
+
 };
 
 class PrintVisitor: public Visitor
@@ -32,8 +33,8 @@ class PrintVisitor: public Visitor
 		string output;
 
 		PrintVisitor();
-		void sqrNode();
 		void rootNode();
+		void sqrNode();
 		void multNode();
 		void subNode();
 		void addNode();

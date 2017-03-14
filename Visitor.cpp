@@ -1,8 +1,9 @@
-#include <iostream>
-
-using namespace std;
-
 #include "Visitor.h"
+
+PrintVisitor::PrintVisitor()
+{
+
+}
 
 void PrintVisitor::rootNode()
 {
