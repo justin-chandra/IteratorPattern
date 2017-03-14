@@ -147,3 +147,5 @@ Base * PreOrderIterator::current()
 {
 	return iterators.top()->current();
 }
+
+//start of print visitor
